@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Site Hexaverse</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+ <!-- Favicon e ícones -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<!-- Ícones Font Awesome -->
+<!-- Font Awesome para ícones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    
+    /* Efeito gradiente neon no texto */
+    .gradient-bg {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(90deg, #0ff, #f0f, #0f0, #ff0);
+      background-size: 400% 400%;
+      animation: neonGlow 10s linear infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+.neon-text {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(90deg, #0ff, #f0f, #0f0, #ff0, #0ff);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: neonIP 6s linear infinite;
+  font-weight: bold;
+}
+    @keyframes neonGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    
+    
+    
+
+
+    /* Cabeçalho */
+    header {
+      background-color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      border-bottom: 2px solid #0ff;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 45px;
+      font-weight: bold;
+      color: #0ff;
+    }
+
+    .hamburger {
+      font-size: 28px;
+      cursor: pointer;
+      color: #0ff;
+    }
+
+.sidebar a i {
+  margin-right: 8px;
+  color: #00ffff; /* cyan mais suave */
+  text-shadow: 0 0 2px #00ffff, 0 0 4px #00ffff;
+}
+    /* Menu lateral */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      padding: 15px 25px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #0ff;
+      display: block;
+    }
+
+    .sidebar a:hover {
+      background-color: #333;
+      color: #f0f;
+    }
+
+
+.foto-equipe {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #0ff;
+  margin-bottom: 10px;
+  margin-left: 90px; /* ajustável conforme posição desejada */
+}
+
+button {
+  background-color: #0ff;
+  color: #000;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #f0f;
+  color: #fff;
+}
+    .closebtn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 30px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* Moldura neon */
+.neon-box {
+  position: relative;
+  padding: 20px;
+  margin: 40px 0;
+  border-radius: 20px;
+  background: #000;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.neon-box {
+  position: relative;
+  padding: 20px;
+  margin: 40px 0;
+  border-radius: 20px;
+  background-color: #000; /* fundo interno permanece escuro */
+  z-index: 1;
+  color: #fff;
+}
+
+.neon-box {
+  position: relative;
+  padding: 20px;
+  margin: 40px 0;
+  border-radius: 20px;
+  background-color: #000;
+  color: #fff;
+  z-index: 1;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+.neon-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 20px;
+  padding: 3px;
+  background: linear-gradient(135deg, #0ff, #f0f, #0f0, #ff0, #0ff);
+  background-size: 400% 400%;
+  animation: borderAnim 8s linear infinite;
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.comentario {
+  border: 2px solid #0ff;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 15px 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 10px #0ff, 0 0 20px #8000;
+  transition: all 0.3s ease;
+}
+
+.comentario:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 12px #0ff, 0 0 25px #f0f, 0 0 30px #0f0;
+}
+
+
+    /* Seções */
+    section h2 {
+      color: #0ff;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .botao {
+      display: inline-block;
+      background-color: #0ff;
+      color: #000;
+      padding: 10px 15px;
+      margin-top: 10px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .botao:hover {
+      background-color: #f0f;
+      color: #fff;
+    }
+    
+    body {
+  background-image: url('https://files.catbox.moe/mi9p52.gif'); /* substitua pelo link da imagem */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+    
+@keyframes borderAnim {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes neonIP {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+  </style>
+</head>
+<body>
+
+<!-- Menu Lateral -->
+<!-- Menu Lateral com Ícones -->
+<div id="mySidebar" class="sidebar">
+  <span class="closebtn" onclick="closeSidebar()">&times;</span>
+
+  <a href="#inicio"><i class="fas fa-home"></i> Início</a>
+  <a href="#sobre"><i class="fas fa-info-circle"></i> Sobre</a>
+  <a href="#letras"><i class="fas fa-music"></i> Letras</a>
+  <a href="vendadenumeros.html"><i class="fas fa-shopping-cart"></i> Venda de Serviços</a>
+  <a href="vendadenumeros.html"><i class="fas fa-handshake"></i> Parcerias</a>
+  <a href="grupos.html"><i class="fab fa-whatsapp"></i> Grupos WhatsApp</a>
+  <a href="vendadenumeros.html"><i class="fas fa-box-open"></i> Packs de Cases/Outros</a>
+  <a href="vendadebots.html"><i class="fas fa-robot"></i> Bots WhatsApp à Venda</a>
+  <a href="vendadenumeros.html"><i class="fas fa-phone"></i> Números à Venda</a>
+  <a href="https://hexabots.onrender.com/"><i class="fas fa-unlock-alt"></i> Bots Descriptografados Grátis</a>
+</div>
+
+<!-- Cabeçalho -->
+<header>
+  <span class="hamburger" onclick="openSidebar()">&#9776;</span>
+  <div class="logo">H<</div>
+</header>
+
+<!-- Título Neon -->
+<div class="gradient-bg">ᕼᕮ᙭ᗩᐯᕮᖇSᕮ Oᖴᑕ</div>
+<h2 id="subtitulo-digitado" class="neon-text" style="text-align: center;"></h2>
+
+<!-- Conteúdo Principal -->
+<main>
+
+<!-- INÍCIO DO CARROSSEL --><div class="neon-box" style="margin-top: 30px;">
+  <div id="carrossel" style="position: relative; text-align: center;">
+    <img id="slide-imagem" src="https://files.catbox.moe/xwwco6.jpg" alt="Clique na Seta e vejas as Novidades da Hexaverse" style="width: 100%; max-height: 400px; border-radius: 15px;">
+   <div id="slide-texto" style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); padding: 10px 20px; border-radius: 10px; font-size: 16px; color: #0ff; font-weight: bold; white-space: nowrap;">
+  NOVIDADES HEXAVERSE OFC
+</div>
+  </div>
+</div>
+<!-- FIM DO CARROSSEL -->
+<audio id="musica" src="https://files.catbox.moe/rlqplo.m4a" loop></audio>  <!-- Seção 1 -->
+  <div class="neon-box" id="inicio">
+    <h2>𝗖𝗼𝗺𝗼 𝘁𝘂𝗱𝗼 𝗰𝗼𝗺𝗲𝗰𝗼𝘂...</h2>
+    <p>Tᴜᴅᴏ ᴄᴏᴍᴇᴄ̧ᴏᴜ ǫᴜᴀɴᴅᴏ Zᴇɴᴏ Mᴏᴅs ʀᴇsᴏʟᴠᴇᴜ ᴄʀɪᴀʀ ᴀ Hᴇxᴀᴠᴇʀsᴇ. Aᴛᴜᴀʟᴍᴇɴᴛᴇ ᴏ ᴄᴀɴᴀʟ ᴇʀᴀ ᴍᴜɪᴛᴏ ᴘᴀʀᴀᴅᴏ ᴍᴀs ᴇʟᴇ ɴᴀ̃ᴏ ᴅᴇsɪsᴛɪᴜ, ᴄᴏʀʀᴇᴜ ᴀᴛʀᴀ́s ᴇ ᴄᴏɴᴠɪᴅᴏᴜ ᴀʟɢᴜɴs ɴᴏᴠᴏs ᴀᴅᴍs. E ᴅᴇᴜ ᴄᴇʀᴛᴏ. Eᴍ ᴍᴇɴᴏs ᴅᴇ ᴜᴍ ᴅɪᴀ ᴏ ᴄᴀɴᴀʟ ɢᴀɴʜᴏᴜ ɴᴏᴠᴏs 500 sᴇɢᴜɪᴅᴏʀᴇs, ᴅᴀɴᴅᴏ ɴᴜᴍ ᴛᴏᴛᴀʟ ᴀᴛᴜᴀʟᴍᴇɴᴛᴇ ᴅᴇ 2K sᴇɢᴜɪᴅᴏʀᴇs.</p>
+  </div>
+
+  <!-- Seção 2 -->
+  <div class="neon-box" id="sobre">
+    <h2>𝗢 𝗾𝘂𝗲 𝗼𝗳𝗲𝗿𝗲𝗰𝗲𝗺𝗼𝘀</h2>
+    <p>Dɪғᴇʀᴇɴᴛᴇᴍᴇɴᴛᴇ ᴅᴇ ᴏᴜᴛʀᴏs ᴄᴀɴᴀɪs , ᴀ Hᴇxᴀᴠᴇʀsᴇ ᴠᴀʟᴏʀɪᴢᴀ ᴀ ᴇsᴄᴏʟʜᴀ ᴅᴏ sᴇɢᴜɪᴅᴏʀ ᴅᴇ sᴇɢᴜɪʀ ᴏᴜ ɴᴀ̃ᴏ. Rᴇsᴜᴍɪɴᴅᴏ ɴɪɴɢᴜᴇ́ᴍ ᴇ́ ᴏʙʀɪɢᴀᴅᴏ ᴀ sᴇɢᴜɪʀ ᴏ ᴄᴀɴᴀʟ ᴘᴀʀᴀ ʀᴇᴄᴇʙᴇʀ ᴄᴏɴᴛᴇᴜ́ᴅᴏs, ᴄʟᴀʀᴏ ǫᴜᴇ sᴇʀɪᴀ ᴏ́ᴛɪᴍᴏ sᴇ ᴏ ғɪᴢᴇssᴇᴍ , ᴍᴀs ᴍᴇsᴍᴏ ǫᴜᴇ ɴᴀ̃ᴏ sɪɢᴀᴍ, ᴠᴀᴍᴏs ᴄᴏɴᴛɪɴᴜᴀʀ ᴏғᴇʀᴇᴄᴇɴᴅᴏ ᴄᴏɴᴛᴇᴜ́ᴅᴏs ɢʀᴀ́ᴛɪs ᴛᴏᴅᴀ sᴇᴍᴀɴᴀ</p>
+  </div>
+
+  <!-- Seção 3 -->
+  <div class="neon-box" id="letras">
+    <h2>Alguns dos nossos serviços</h2>
+    <p>
+      
+<div style="line-height: 2;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot-icon lucide-bot"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+  Criação de Bots de Whatsapp<br>
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart-icon lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+  Vendas de Bots Cripto/Descript<br>
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code-icon lucide-file-code"><path d="M10 12.5 8 15l2 2.5"/><path d="m14 12.5 2 2.5-2 2.5"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/></svg>
+  Criação de Sites Htmls<br>
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad2-icon lucide-gamepad-2"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>
+  Criação de Jogos Htmls<br><br>
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tablet-icon lucide-tablet"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><line x1="12" x2="12.01" y1="18" y2="18"/></svg>
+  Painéis de Métodos e Recursos<br>
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-box-icon lucide-file-box"><path d="M14.5 22H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M3 13.1a2 2 0 0 0-1 1.76v3.24a2 2 0 0 0 .97 1.78L6 21.7a2 2 0 0 0 2.03.01L11 19.9a2 2 0 0 0 1-1.76V14.9a2 2 0 0 0-.97-1.78L8 11.3a2 2 0 0 0-2.03-.01Z"/><path d="M7 17v5"/><path d="M11.7 14.2 7 17l-4.7-2.8"/></svg>
+  Pack de Apks Premium<br>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-more-icon lucide-message-square-more"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+  Vendas de Números Br/Estrangeiro<br>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-image-icon lucide-image"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+  Criação de Canvas/Cards/Cases<br>
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alarm-clock-minus-icon lucide-alarm-clock-minus"><circle cx="12" cy="13" r="8"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/><path d="M9 13h6"/></svg>Atraso em contatos que dão golpes<br>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-plus-icon lucide-message-circle-plus"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+  Spam em quem envia Cp, G0re e etc<br><br>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code-icon lucide-file-code"><path d="M10 12.5 8 15l2 2.5"/><path d="m14 12.5 2 2.5-2 2.5"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/></svg>
+  Scripts e Métodos Ban/Desban<br>
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor-cog-icon lucide-monitor-cog"><path d="M12 17v4"/><path d="m14.305 7.53.923-.382"/><path d="m15.228 4.852-.923-.383"/><path d="m16.852 3.228-.383-.924"/><path d="m16.852 8.772-.383.923"/><path d="m19.148 3.228.383-.924"/><path d="m19.53 9.696-.382-.924"/><path d="m20.772 4.852.924-.383"/><path d="m20.772 7.148.924.383"/><path d="M22 13v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"/><path d="M8 21h8"/><circle cx="18" cy="6" r="3"/></svg>
+  Puxar Dados/Invadir Sistemas<br>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-school-icon lucide-school"><path d="M14 22v-4a2 2 0 1 0-4 0v4"/><path d="m18 10 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7.382a1 1 0 0 1 .553-.894L6 10"/><path d="M18 5v17"/><path d="m4 6 7.106-3.553a2 2 0 0 1 1.788 0L20 6"/><path d="M6 5v17"/><circle cx="12" cy="9" r="2"/></svg>
+  Aulas Ensinando a criar um bot de Zap<br>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-stack-icon lucide-square-stack"><path d="M4 10c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2"/><path d="M10 16c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2"/><rect width="8" height="8" x="14" y="14" rx="2"/></svg>
+  E muito mais<br>
+</div>
+       </p>
+    <p><strong>Escrito por:</strong>Dmzgty<br>
+    <strong>Atualização:</strong>11/07/2025 </p>
+  </div>
+
+
+<div class="neon-box" id="visitas">
+  <h2>Quantidade de Visitas no Site</h2>
+  <p id="contador" class="neon-text">Carregando visitantes...</p>
+</div>
+  <!-- Seção 4 -->
+  
+<div class="neon-box" id="equipe">
+  <h2>Equipe Oficial Hexaverse</h2>
+  <div id="membro-equipe" class="text-center">
+    <img id="membro-foto" src="equipe1.jpg" alt="" class="foto-equipe">
+    <h3 id="membro-nome">ㅤClique no botão pra conhecer a Equipe ㅤㅤㅤㅤㅤㅤㅤㅤㅤ Hexaverse</h3>
+    <p id="membro-contato"></p>
+    <p id="membro-funcao"></p>
+
+    <div style="margin-top: 15px;">
+      <button onclick="anteriorMembro()">◀</button>
+      <button onclick="proximoMembro()">▶</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Seção de Comentários de Clientes -->
+<div class="neon-box" id="comentarios">
+  <h2 style="color: #0ff; font-size: 24px; text-align: center;">O que alguns clientes dizem</h2>
+
+  <div class="comentario">
+    <p>"Recomendo muito a Hexaverse! Nunca fiquei na mão, e o suporte é rápido e eficiente."</p>
+    <strong style="color: #00ffcc;">— Marcos Oliveira</strong>
+  </div>
+
+  <div class="comentario">
+    <p>"Excelente serviço, qualidade top! Meus bots rodam liso desde que comecei a usar os serviços."</p>
+    <strong style="color: #66ff99;">— Ana Beatriz</strong>
+  </div>
+
+  <div class="comentario">
+    <p>"Atendimento ágil e preços justos. Indico de olhos fechados!"</p>
+    <strong style="color: #33ffcc;">— Pedro Santos</strong>
+  </div>
+
+  <div class="comentario">
+    <p>"Nunca vi suporte tão eficiente como o da Hexaverse. Resolveram meu problema em minutos."</p>
+    <strong style="color: #99ffcc;">— Joana Lima</strong>
+  </div>
+</div>
+  
+</main>
+
+
+
+<footer style="background-color: #111; padding: 25px 15px; text-align: center; border-top: 2px solid #0ff; margin-top: 50px;">
+  <p style="color: #0ff; font-family: 'Orbitron', sans-serif; font-size: 14px;">
+    &copy; 2025 Hexaverse - Todos os direitos reservados.<br>
+     Zeno Mods e Dmzgty
+  </p>
+  <div style="margin-top: 15px;">
+    <a href="https://t.me/seulinktelegram" target="_blank" style="margin: 0 10px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="30" alt="Telegram" style="filter: drop-shadow(0 0 5px #0ff);">
+    </a>
+    <a href="https://instagram.com/seulinkinsta" target="_blank" style="margin: 0 10px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="30" alt="Instagram" style="filter: drop-shadow(0 0 5px #f0f);">
+    </a>
+    <a href="https://wa.me/seunumerowhatsapp" target="_blank" style="margin: 0 10px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="30" alt="WhatsApp" style="filter: drop-shadow(0 0 5px #0f0);">
+    </a>
+  </div>
+</footer>
+
+
+
+<script>
+  function openSidebar() {
+    document.getElementById("mySidebar").style.width = "250px";
+  }
+
+  function closeSidebar() {
+    document.getElementById("mySidebar").style.width = "0";
+  }
+</script>
+
+
+
+
+
+
+<script>
+  const slides = [
+    {
+      imagem: "https://files.catbox.moe/wf75sm.jpg",
+      texto: "Em breve Takira Bot Descriptografado"
+    },
+    {
+      imagem: "https://files.catbox.moe/2lneli.gif",
+      texto: "Grupo de Criação da Nova Bot Feminina Hexaverse"
+    },
+    {
+      imagem: "https://files.catbox.moe/fgok16.jpeg",
+      texto: "Vem aí o sorteio do maior Pack Misterioso"
+    }
+  ];
+
+  let slideAtual = 0;
+
+  function mostrarSlide(index) {
+    const slide = slides[index];
+    document.getElementById("slide-imagem").src = slide.imagem;
+    document.getElementById("slide-texto").textContent = slide.texto;
+  }
+
+  function proximoSlide() {
+    slideAtual = (slideAtual + 1) % slides.length;
+    mostrarSlide(slideAtual);
+  }
+
+  function anteriorSlide() {
+    slideAtual = (slideAtual - 1 + slides.length) % slides.length;
+    mostrarSlide(slideAtual);
+  }
+
+  // ⏱ Troca automática a cada 5 segundos
+  setInterval(proximoSlide, 5000);
+
+  // Mostra o slide inicial
+  mostrarSlide(slideAtual);
+</script>
+
+<script>
+  const membros = [
+    {
+      nome: "Zeno Mods",
+      contato: "28382928392",
+      funcao: "CEO, Dev, Suporte e Financeiro",
+      foto: "https://files.catbox.moe/ua8w4h.jpeg"
+    },
+    {
+      nome: "Dmzgty",
+      contato: "918273645",
+      funcao: "Gerente, Dev, Caçador de Conteúdos e Manipulador de Mídia.",
+      foto: "https://files.catbox.moe/pnms7d.gif"
+    },
+    {
+      nome: "Zero Two",
+      contato: "1122334455",
+      funcao: "Sócia, Dev, Suporte e Financeiro",
+      foto: "https://files.catbox.moe/ou510d.jpeg"
+    }
+  ];
+
+  let indiceAtual = 0;
+
+  function atualizarMembro() {
+    const membro = membros[indiceAtual];
+    document.getElementById("membro-nome").textContent = membro.nome;
+    document.getElementById("membro-contato").textContent = "Contato: " + membro.contato;
+    document.getElementById("membro-funcao").textContent = membro.funcao;
+    document.getElementById("membro-foto").src = membro.foto;
+  }
+
+  function proximoMembro() {
+    indiceAtual = (indiceAtual + 1) % membros.length;
+    atualizarMembro();
+  }
+
+  function anteriorMembro() {
+    indiceAtual = (indiceAtual - 1 + membros.length) % membros.length;
+    atualizarMembro();
+  }
+</script>
+
+
+<script>
+  const textoPrincipal = "ᕼᕮ᙭ᗩᐯᕮᖇSᕮ Oᖴᑕ";
+  const subtitulo = "Bem Vindos a Hexaverse , o site mais completo da web";
+  
+  let tituloIndex = 0;
+  let subtituloIndex = 0;
+
+  // Simula a digitação do título
+  function digitarTitulo() {
+    if (tituloIndex < textoPrincipal.length) {
+      document.querySelector('.gradient-bg').textContent += textoPrincipal.charAt(tituloIndex);
+      tituloIndex++;
+      setTimeout(digitarTitulo, 100);
+    } else {
+      setTimeout(digitarSubtitulo, 500); // espera meio segundo e começa o subtítulo
+    }
+  }
+
+  // Simula a digitação do subtítulo
+  function digitarSubtitulo() {
+    if (subtituloIndex < subtitulo.length) {
+      document.getElementById('subtitulo-digitado').textContent += subtitulo.charAt(subtituloIndex);
+      subtituloIndex++;
+      setTimeout(digitarSubtitulo, 60);
+    }
+  }
+
+  // Começa com o título vazio e inicia digitação
+  document.querySelector('.gradient-bg').textContent = "";
+  document.getElementById('subtitulo-digitado').textContent = "";
+  digitarTitulo();
+</script>
+
+
+<script>
+  let tocou = false;
+
+  document.addEventListener('click', () => {
+    if (!tocou) {
+      const audio = document.getElementById('musica');
+      audio.play().catch(() => {});
+      tocou = true;
+    }
+  });
+</script>
+
+
+<script>
+  const binId = '686df4a341e5ad77b37a8049';
+  const apiKey = '$2a$10$oTnqrjUlyK78EJ0DSbpOr.1qjOxakdPUhZdF0uNAd4wB8tvGq0COS';
+  const intervalo = 30 * 1800000; // 30 segundos (troque p/ 1800000 se quiser 30 minutos)
+
+  async function atualizarVisitantesSimulados() {
+    try {
+      const res = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+        headers: { 'X-Master-Key': apiKey }
+      });
+      const data = await res.json();
+      let visitas = data.record.visitas;
+      let ultimo = data.record.ultimoAumento;
+
+      const agora = Date.now();
+      const tempoPassado = agora - ultimo;
+
+      if (tempoPassado >= intervalo) {
+        const incremento = Math.floor(Math.random() * 3) + 1;
+        visitas += incremento;
+
+        const novo = {
+          visitas: visitas,
+          ultimoAumento: agora
+        };
+
+        await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': apiKey
+          },
+          body: JSON.stringify(novo)
+        });
+      }
+
+      document.getElementById("contador").textContent =
+        `Mais de ${visitas} pessoas já visitaram este site.`;
+
+    } catch (err) {
+      console.error("Erro ao buscar visitas:", err);
+      document.getElementById("contador").textContent =
+        'Não foi possível carregar o número de visitantes.';
+    }
+  }
+
+  atualizarVisitantesSimulados();
+</script>
+
+</body>
+</html>
